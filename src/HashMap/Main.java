@@ -4,28 +4,26 @@ import java.util.HashMap;
 
 public class Main {
         public static void main(String[] args) {
-            // Bước 1: Khai báo mảng
-            int[] arr = {1, 2, 3, 4, 2, 3, 1, 5, 6, 4};
+            int[] arr = {1,4,2,2,-1,5,4,3,2};
 
-            // Bước 2: Sử dụng HashMap để đếm số lần xuất hiện của mỗi phần tử
-            HashMap<Integer, Integer> elementCountMap = new HashMap<>();
+
+            HashMap<Integer, Integer> map = new HashMap<>();
 
             for (int element : arr) {
-                if (elementCountMap.containsKey(element)) {
-                    // Phần tử đã tồn tại trong HashMap, tăng số lần xuất hiện lên 1
-                    int count = elementCountMap.get(element);
-                    elementCountMap.put(element, count + 1);
+                if (map.containsKey(element)) {
+                    int count = map.get(element);
+                    map.put(element, count + 1);
                 } else {
-                    // Phần tử chưa tồn tại trong HashMap, thêm vào với số lần xuất hiện ban đầu là 1
-                    elementCountMap.put(element, 1);
+                    map.put(element, 1);
                 }
             }
-
-            // Bước 3: Duyệt qua HashMap và in ra số lần xuất hiện của từng phần tử
-            for (int key : elementCountMap.keySet()) {
-                int count = elementCountMap.get(key);
+            for (int key : map.keySet()) {
+                int count = map.get(key);
                 System.out.println("Phần tử " + key + " xuất hiện " + count + " lần");
             }
+
+
+
         }
 
 }
